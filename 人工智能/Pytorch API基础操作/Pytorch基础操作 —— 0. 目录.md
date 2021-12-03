@@ -159,11 +159,11 @@ aminmax         | Computes the minimum and maximum values of the input tensor. |
 
 Function        | Description   | Detail
 ----------------|---------------|-----------
-cummax          | Returns a namedtuple (values, indices) where values is the cumulative maximum of elements of input in the dimension dim. | 在数列中累计比较，找出每次比较结果的最大值和引索
-cummin          | Returns a namedtuple (values, indices) where values is the cumulative minimum of elements of input in the dimension dim.  | 在数列中累计比较，找出每次比较结果的最小值和引索
+cummax          | Returns a namedtuple (values, indices) where values is the cumulative maximum of elements of input in the dimension dim. | 在数列中累计比较元素大小，找出每次比较结果的最大值和引索
+cummin          | Returns a namedtuple (values, indices) where values is the cumulative minimum of elements of input in the dimension dim.  | 在数列中累计比较元素大小，找出每次比较结果的最小值和引索
 cumsum          | Returns the cumulative sum of elements of input in the dimension dim. | 以累计形式返回张量内元算的连加运算
 cumprod         | Returns the cumulative product of elements of input in the dimension dim. | 以累计形式返回张量内元算的连乘运算
-logcumsumexp    | Returns the logarithm of the cumulative summation of the exponentiation of elements of input in the dimension dim.
+logcumsumexp    | Returns the logarithm of the cumulative summation of the exponentiation of elements of input in the dimension dim. | 以累计形式返回张量内各元算的log运算
 
 [Pytorch基础操作 —— 16. 累计运算](https://seagochen.blog.csdn.net/article/details/121583778)
 
@@ -171,11 +171,77 @@ logcumsumexp    | Returns the logarithm of the cumulative summation of the expon
 
 Function        | Description   | Detail
 ----------------|---------------|-----------
-abs             | Computes the absolute value of each element in input. |
-absolute        | Alias for torch.abs()  
-ceil            | Returns a new tensor with the ceil of the elements of input, the smallest integer greater than or equal to each element.
-round           | Returns a new tensor with each of the elements of input rounded to the closest integer.
-floor           | Returns a new tensor with the floor of the elements of input, the largest integer less than or equal to each element.
+abs             | Computes the absolute value of each element in input. | 返回元素的绝对值
+absolute        | Alias for torch.abs()  | torch.abs 的别名
+ceil            | Returns a new tensor with the ceil of the elements of input, the smallest integer greater than or equal to each element. | 对元素向上取整
+round           | Returns a new tensor with each of the elements of input rounded to the closest integer. | 对元素四舍五入
+floor           | Returns a new tensor with the floor of the elements of input, the largest integer less than or equal to each element. | 对元素向下取整
+
+[Pytorch基础操作 —— 17. 绝对值、取整](https://blog.csdn.net/poisonchry/article/details/121591108)
+
+### 频域分析
+
+Function        | Description   | Detail
+----------------|---------------|-----------
+real            | Returns a new tensor containing real values of the self tensor.
+imag            | Returns a new tensor containing imaginary values of the self tensor.
+stft            | Short-time Fourier transform (STFT).
+istft           | Inverse short time Fourier Transform.
+bartlett_window | Bartlett window function.
+blackman_window | Blackman window function.
+
+Function     | Description    | Detail
+-------------|----------------|-----------
+clamp | Clamps all elements in input into the range [ min, max ].
+clip      | Alias for torch.clamp().
+conj_physical | Computes the element-wise conjugate of the given input tensor.
+copysign  |  Create a new floating-point tensor with the magnitude of input and the sign of other, elementwise.
+deg2rad | Returns a new tensor with each of the elements of input converted from angles in degrees to radians.
+digamma | Alias for torch.special.digamma().
+erf | Alias for torch.special.erf().
+erfc | Alias for torch.special.erfc().
+erfinv | Alias for torch.special.erfinv().
+fake_quantize_per_channel_affine | Returns a new tensor with the data in input fake quantized per channel using scale, zero_point, quant_min and quant_max, across the channel specified by axis.
+fake_quantize_per_tensor_affine | Returns a new tensor with the data in input fake quantized using scale, zero_point, quant_min and quant_max.
+floor_divide | 
+fmod | Applies C++’s std::fmod for floating point tensors, and the modulus operation for integer tensors.
+frac | Computes the fractional portion of each element in input.
+frexp | Decomposes input into mantissa and exponent tensors such that \text{input} = \text{mantissa} \times 2^{\text{exponent}}input=mantissa×2 
+ldexp | Multiplies input by 2**:attr:other.
+lerp | Does a linear interpolation of two tensors start (given by input) and end based on a scalar or tensor weight and returns the resulting out tensor.
+logit | Alias for torch.special.logit(). |
+hypot | Given the legs of a right triangle, return its hypotenuse. |
+i0 | Alias for torch.special.i0(). |
+nextafter | Return the next floating-point value after input towards other, elementwise.
+polygamma | Alias for torch.special.polygamma().
+rad2deg | Returns a new tensor with each of the elements of input converted from angles in radians to degrees.
+reciprocal | Returns a new tensor with the reciprocal of the elements of input
+remainder | Like torch.fmod() this applies C++’s std::fmod for floating point tensors and the modulus operation for integer tensors.
+rsqrt | Returns a new tensor with the reciprocal of the square-root of each of the elements of input.
+true_divide | Alias for torch.div() with rounding_mode=None.
+trunc | Returns a new tensor with the truncated integer values of the elements of input.
+xlogy | Alias for torch.special.xlogy().
+all | Tests if all elements in input evaluate to True.
+any | 
+dist | Returns the p-norm of (input - other)
+nanmean | Computes the mean of all non-NaN elements along the specified dimensions.
+nanmedian |Returns the median of the values in input, ignoring NaN values.
+mode | Returns a namedtuple (values, indices) where values is the mode value of each row of the input tensor in the given dimension dim, i.e. a value which appears most often in that row, and indices is the index location of each mode value found.
+nansum | Returns the sum of all elements, treating Not a Numbers (NaNs) as zero.
+quantile | Computes the q-th quantiles of each row of the input tensor along the dimension dim.
+nanquantile | This is a variant of torch.quantile() that “ignores” NaN values, computing the quantiles q as if NaN values in input did not exist.
+unique | Returns the unique elements of the input tensor.
+unique_consecutive | Eliminates all but the first element from every consecutive group of equivalent elements.
+count_nonzero | Counts the number of non-zero values in the tensor input along the given dim.
+allclose | This function checks if all input and other satisfy the condition:
+argsort | Returns the indices that sort a tensor along a given dimension in ascending order by value.
+kthvalue | Returns a namedtuple (values, indices) where values is the k th smallest element of each row of the input tensor in the given dimension dim.
+sort | Sorts the elements of the input tensor along a given dimension in ascending order by value.
+topk | Returns the k largest elements of the given input tensor along a given dimension.
+msort | Sorts the elements of the input tensor along its first dimension in ascending order by value.
+hamming_window | Hamming window function.
+hann_window | Hann window function.
+kaiser_window | Computes the Kaiser window with window length window_length and shape parameter beta.
 
 
 ### 指数与开方
@@ -194,7 +260,8 @@ log10           | Returns a new tensor with the logarithm to the base 10 of the 
 log1p           | Returns a new tensor with the natural logarithm of (1 + input).
 log2            | Returns a new tensor with the logarithm to the base 2 of the elements of input.
 float_power     | Raises input to the power of exponent, elementwise, in double precision.
-
+logaddexp       | Logarithm of the sum of exponentiations of the inputs. |
+logaddexp2      | Logarithm of the sum of exponentiations of the inputs in base-2. |
 
 ### 均值、方差、协方差
 Function        | Description   | Detail
@@ -211,6 +278,7 @@ histogram       | Computes a histogram of the values in a tensor.
 cov             | Estimates the covariance matrix of the variables given by the input matrix, where rows are the variables and columns are the observations.
 diff            | Computes the n-th forward difference along the given dimension.
 norm            | Returns the matrix norm or vector norm of a given tensor.
+logsumexp       | Returns the log of summed exponentials of each row of the input tensor in the given dimension dim.
 
 
 Function        | Description   | Detail
@@ -218,6 +286,25 @@ Function        | Description   | Detail
 det             | Alias for torch.linalg.det()
 slogdet         | Alias for torch.linalg.slogdet()
 fix             | Alias for torch.trunc()
+positive        | Returns input.
+neg             | Returns a new tensor with the negative of the elements of input.
+negative        | Alias for torch.neg()
+igamma          | Alias for torch.special.gammainc().
+igammac         | Alias for torch.special.gammaincc().
+mvlgamma        | Alias for torch.special.multigammaln().
+nan_to_num      | Replaces NaN, positive infinity, and negative infinity values in input with the values specified by nan, posinf, and neginf, respectively.
+sigmoid         | Alias for torch.special.expit().
+sign            | Returns a new tensor with the signs of the elements of input.
+sgn             | This function is an extension of torch.sign() to complex tensors.
+signbit         | Tests if each element of input has its sign bit set (is less than zero) or not.
+sin             | Returns a new tensor with the sine of the elements of input.
+sinc            | Alias for torch.special.sinc().
+sinh            | Returns a new tensor with the hyperbolic sine of the elements of input.
+tan             | Returns a new tensor with the tangent of the elements of input.
+tanh            | Returns a new tensor with the hyperbolic tangent of the elements of input.
+quantized_batch_norm | Applies batch normalization on a 4D (NCHW) quantized tensor.
+quantized_max_pool1d | Applies a 1D max pooling over an input quantized tensor composed of several input planes.
+quantized_max_pool2d | Applies a 2D max pooling over an input quantized tensor composed of several input planes.
 
 
 ### 三角函数
@@ -246,16 +333,18 @@ cosh            | Returns a new tensor with the hyperbolic cosine of the element
 
 Function        | Description   | Detail
 ----------------|---------------|-----------
-le              | Computes \text{input} \leq \text{other}input≤other element-wise.
-less_equal      | Alias for torch.le().
-lt              | Computes \text{input} < \text{other}input<other element-wise.
-less            | Alias for torch.lt().  
 eq              | Computes element-wise equality
 equal           | True if two tensors have the same size and elements, False otherwise.
+ne              | Computes \text{input} \neq \text{other}input =other element-wise. 
+not_equal       | Alias for torch.ne().
 ge              | Computes \text{input} \geq \text{other}input≥other element-wise.
 greater_equal   | Alias for torch.ge().
 gt              | Computes \text{input} > \text{other}input>other element-wise.
-greater         | Alias for torch.gt().        
+greater         | Alias for torch.gt().
+le              | Computes \text{input} \leq \text{other}input≤other element-wise.
+less_equal      | Alias for torch.le().
+lt              | Computes \text{input} < \text{other}input<other element-wise.
+less            | Alias for torch.lt().      
 isclose         | Returns a new tensor with boolean elements representing if each element of input is “close” to the corresponding element of other.
 isfinite        | Returns a new tensor with boolean elements representing if each element is finite or not.
 isin            | Tests if each element of elements is in test_elements.
@@ -284,124 +373,15 @@ logical_xor     | Computes the element-wise logical XOR of the given input tenso
 
 
 
-Function     | Description    | Detail
--------------|----------------|-----------
-clamp | Clamps all elements in input into the range [ min, max ].
-clip      | Alias for torch.clamp().
-conj_physical | Computes the element-wise conjugate of the given input tensor.
-copysign  |  Create a new floating-point tensor with the magnitude of input and the sign of other, elementwise.
-deg2rad | Returns a new tensor with each of the elements of input converted from angles in degrees to radians.
-digamma | Alias for torch.special.digamma().
-erf | Alias for torch.special.erf().
-erfc | Alias for torch.special.erfc().
-erfinv | Alias for torch.special.erfinv().
-fake_quantize_per_channel_affine | Returns a new tensor with the data in input fake quantized per channel using scale, zero_point, quant_min and quant_max, across the channel specified by axis.
-fake_quantize_per_tensor_affine | Returns a new tensor with the data in input fake quantized using scale, zero_point, quant_min and quant_max.
-floor_divide | 
-fmod | Applies C++’s std::fmod for floating point tensors, and the modulus operation for integer tensors.
-frac | Computes the fractional portion of each element in input.
-frexp | Decomposes input into mantissa and exponent tensors such that \text{input} = \text{mantissa} \times 2^{\text{exponent}}input=mantissa×2 
-imag | Returns a new tensor containing imaginary values of the self tensor.
-ldexp | Multiplies input by 2**:attr:other.
-lerp | Does a linear interpolation of two tensors start (given by input) and end based on a scalar or tensor weight and returns the resulting out tensor.
-logaddexp | Logarithm of the sum of exponentiations of the inputs. |
-logaddexp2 | Logarithm of the sum of exponentiations of the inputs in base-2. |
-logit | Alias for torch.special.logit(). |
-hypot | Given the legs of a right triangle, return its hypotenuse. |
-i0 | Alias for torch.special.i0(). |
-igamma | Alias for torch.special.gammainc().
-igammac | Alias for torch.special.gammaincc().
-mvlgamma | Alias for torch.special.multigammaln().
-nan_to_num | Replaces NaN, positive infinity, and negative infinity values in input with the values specified by nan, posinf, and neginf, respectively.
-neg | Returns a new tensor with the negative of the elements of input.
-negative | Alias for torch.neg()
-nextafter | Return the next floating-point value after input towards other, elementwise.
-polygamma | Alias for torch.special.polygamma().
-positive | Returns input.
-quantized_batch_norm | Applies batch normalization on a 4D (NCHW) quantized tensor.
-quantized_max_pool1d | Applies a 1D max pooling over an input quantized tensor composed of several input planes.
-quantized_max_pool2d | Applies a 2D max pooling over an input quantized tensor composed of several input planes.
-rad2deg | Returns a new tensor with each of the elements of input converted from angles in radians to degrees.
-real | Returns a new tensor containing real values of the self tensor.
-reciprocal | Returns a new tensor with the reciprocal of the elements of input
-remainder | Like torch.fmod() this applies C++’s std::fmod for floating point tensors and the modulus operation for integer tensors.
-rsqrt | Returns a new tensor with the reciprocal of the square-root of each of the elements of input.
-sigmoid | Alias for torch.special.expit().
-sign | Returns a new tensor with the signs of the elements of input.
-sgn | This function is an extension of torch.sign() to complex tensors.
-signbit | Tests if each element of input has its sign bit set (is less than zero) or not.
-sin | Returns a new tensor with the sine of the elements of input.
-sinc | Alias for torch.special.sinc().
-sinh | Returns a new tensor with the hyperbolic sine of the elements of input.
-tan | Returns a new tensor with the tangent of the elements of input.
-tanh | Returns a new tensor with the hyperbolic tangent of the elements of input.
-true_divide | Alias for torch.div() with rounding_mode=None.
-trunc | Returns a new tensor with the truncated integer values of the elements of input.
-xlogy | Alias for torch.special.xlogy().
-all | Tests if all elements in input evaluate to True.
-any | 
-dist | Returns the p-norm of (input - other)
-logsumexp | Returns the log of summed exponentials of each row of the input tensor in the given dimension dim.
-nanmean | Computes the mean of all non-NaN elements along the specified dimensions.
-nanmedian |Returns the median of the values in input, ignoring NaN values.
-mode | Returns a namedtuple (values, indices) where values is the mode value of each row of the input tensor in the given dimension dim, i.e. a value which appears most often in that row, and indices is the index location of each mode value found.
-nansum | Returns the sum of all elements, treating Not a Numbers (NaNs) as zero.
-quantile | Computes the q-th quantiles of each row of the input tensor along the dimension dim.
-nanquantile | This is a variant of torch.quantile() that “ignores” NaN values, computing the quantiles q as if NaN values in input did not exist.
-unique | Returns the unique elements of the input tensor.
-unique_consecutive | Eliminates all but the first element from every consecutive group of equivalent elements.
-count_nonzero | Counts the number of non-zero values in the tensor input along the given dim.
-allclose | This function checks if all input and other satisfy the condition:
-argsort | Returns the indices that sort a tensor along a given dimension in ascending order by value.
-kthvalue | Returns a namedtuple (values, indices) where values is the k th smallest element of each row of the input tensor in the given dimension dim.
-ne | Computes \text{input} \neq \text{other}input =other element-wise. 
-not_equal | Alias for torch.ne().
-sort | Sorts the elements of the input tensor along a given dimension in ascending order by value.
-topk | Returns the k largest elements of the given input tensor along a given dimension.
-msort | Sorts the elements of the input tensor along its first dimension in ascending order by value.
-
-
-stft | Short-time Fourier transform (STFT).
-istft | Inverse short time Fourier Transform.
-bartlett_window | Bartlett window function.
-blackman_window | Blackman window function.
-hamming_window | Hamming window function.
-hann_window | Hann window function.
-kaiser_window | Computes the Kaiser window with window length window_length and shape parameter beta.
-
 Other Operations
-atleast_1d
-
-Returns a 1-dimensional view of each input tensor with zero dimensions.
-
-atleast_2d
-
-Returns a 2-dimensional view of each input tensor with zero dimensions.
-
-atleast_3d
-
-Returns a 3-dimensional view of each input tensor with zero dimensions.
-
-bincount
-
-Count the frequency of each value in an array of non-negative ints.
-
-block_diag
-
-Create a block diagonal matrix from provided tensors.
-
-broadcast_tensors
-
-Broadcasts the given tensors according to Broadcasting semantics.
-
-broadcast_to
-
-Broadcasts input to the shape shape.
-
-broadcast_shapes
-
-Similar to broadcast_tensors() but for shapes.
-
+atleast_1d| Returns a 1-dimensional view of each input tensor with zero dimensions.
+atleast_2d| Returns a 2-dimensional view of each input tensor with zero dimensions.
+atleast_3d| Returns a 3-dimensional view of each input tensor with zero dimensions.
+bincount|Count the frequency of each value in an array of non-negative ints.
+block_diag| Create a block diagonal matrix from provided tensors.
+broadcast_tensors| Broadcasts the given tensors according to Broadcasting semantics.
+broadcast_to | Broadcasts input to the shape shape.
+broadcast_shapes | Similar to broadcast_tensors() but for shapes.
 bucketize | Returns the indices of the buckets to which each value in the input belongs, where the boundaries of the buckets are set by boundaries.
 cartesian_prod | Do cartesian product of the given sequence of tensors.
 cdist | Computes batched the p-norm distance between each pair of the two collections of row vectors.
@@ -412,7 +392,6 @@ diag| If input is a vector (1-D tensor), then returns a 2-D square tensor
 diag_embed| Creates a tensor whose diagonals of certain 2D planes (specified by dim1 and dim2) are filled by input.
 diagflat| If input is a vector (1-D tensor), then returns a 2-D square tensor
 diagonal| Returns a partial view of input with the its diagonal elements with respect to dim1 and dim2 appended as a dimension at the end of the shape.
-
 einsum| Sums the product of the elements of the input operands along dimensions specified using a notation based on the Einstein summation convention.
 flatten| Flattens input by reshaping it into a one-dimensional tensor.
 flip| Reverse the order of a n-D tensor along given axis in dims.
@@ -420,7 +399,6 @@ fliplr| Flip tensor in the left/right direction, returning a new tensor.
 flipud| Flip tensor in the up/down direction, returning a new tensor.
 kron | Computes the Kronecker product, denoted by \otimes⊗, of input and other.
 rot90 | Rotate a n-D tensor by 90 degrees in the plane specified by dims axis.
-
 gcd | Computes the element-wise greatest common divisor (GCD) of input and other.
 meshgrid | Creates grids of coordinates specified by the 1D inputs in attr:tensors.
 lcm | Computes the element-wise least common multiple (LCM) of input and other.
@@ -435,7 +413,6 @@ tril | Returns the lower triangular part of the matrix (2-D tensor) or batch of 
 tril_indices | Returns the indices of the lower triangular part of a row-by- col matrix in a 2-by-N Tensor, where the first row contains row coordinates of all indices and the second row contains column coordinates.
 triu | Returns the upper triangular part of a matrix (2-D tensor) or batch of matrices input, the other elements of the result tensor out are set to 0.
 triu_indices | Returns the indices of the upper triangular part of a row by col matrix in a 2-by-N Tensor, where the first row contains row coordinates of all indices and the second row contains column coordinates.
-
 vander | Generates a Vandermonde matrix.
 view_as_real | Returns a view of input as a real tensor.
 view_as_complex | Returns a view of input as a complex tensor.
