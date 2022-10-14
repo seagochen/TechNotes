@@ -31,6 +31,7 @@ As you have seen, this HTML code will display a login form to the user, and the 
 This is what the form looks like.
 
 ![在这里插入图片描述](./imgs/2022101401.png)
+
 Till now, when we click the submit button, nothing will happen. So, suppose the user has already filled out the form. They expect that when they click the button, the login information will be sent to the backend server, and the server should check and return the message and prompt something, like a popout window to tell the user something is wrong or just jump from the login page to backstage.
 
 So the key to achieving the goal is to bind the element with a piece of Javascript code. And this is what the Javascript code looks like:
