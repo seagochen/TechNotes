@@ -1,6 +1,40 @@
+- [What is Markdown?](#what-is-markdown)
+- [Which text editor to use?](#which-text-editor-to-use)
+- [What to prepare if you want to use Visual Studio Code?](#what-to-prepare-if-you-want-to-use-visual-studio-code)
+- [Notations of Markdown](#notations-of-markdown)
+  - [Headers](#headers)
+- [This is an h1 tag](#this-is-an-h1-tag)
+  - [This is an h2 tag](#this-is-an-h2-tag)
+          - [This is an h6 tag](#this-is-an-h6-tag)
+  - [Emphasis](#emphasis)
+  - [Lists](#lists)
+    - [Unordered](#unordered)
+    - [Ordered](#ordered)
+  - [Images](#images)
+  - [Math](#math)
+  - [Inline code](#inline-code)
+  - [Links](#links)
+  - [Blockquotes](#blockquotes)
+  - [Tables](#tables)
+  - [Task Lists](#task-lists)
+  - [Strikethrough](#strikethrough)
+  - [Emoji](#emoji)
+  - [Footnotes](#footnotes)
+  - [Horizontal Rule](#horizontal-rule)
+- [Draw Diagrams](#draw-diagrams)
+  - [Flowchart](#flowchart)
+  - [Pie Charts](#pie-charts)
+  - [Sequence Diagram](#sequence-diagram)
+  - [Gantt Diagram](#gantt-diagram)
+
+
+
 # What is Markdown?
 
 Markdown is a lightweight markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats using a tool by the same name. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
+
+
+
 
 # Which text editor to use?
 
@@ -89,6 +123,39 @@ _You **can** combine them_
 
 ![GitHub Logo](./res/sample_image.png)
 
+
+## Math
+
+```markdown
+$$
+\frac{n!}{k!(n-k)!} = \binom{n}{k}
+$$
+```
+
+$$
+\frac{n!}{k!(n-k)!} = \binom{n}{k}
+$$
+
+## Inline code
+
+**C++**
+
+```c++
+
+#include <iostream>
+
+int main()
+{
+    std::cout << "Hello World!\n";
+}
+```
+
+**Python**
+
+```python
+print("Hello World!")
+```
+
 ## Links
 
 ```markdown
@@ -114,26 +181,6 @@ As Kanye West said:
 > We're living the future so
 > the present is our past.
 
-
-## Inline code
-
-**C++**
-
-```c++
-
-#include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
-}
-```
-
-**Python**
-
-```python
-print("Hello World!")
-```
 
 ## Tables
 
@@ -191,9 +238,14 @@ print("Hello World!")
 
 ```markdown
 :smile:
+:sweat:
 ```
 
 :smile:
+:sweat:
+
+For more information, you can refer to this emoji sheet: https://gist.github.com/rxaviers/7360908
+
 
 ## Footnotes
 
@@ -214,6 +266,12 @@ Here's a sentence with a footnote. [^1]
 ---
 ```
 
+# Draw Diagrams
+
+Here are some examples of diagrams that can be drawn using Markdown.
+
+For more information, you can refer to this website: http://mermaid.js.org/intro/
+
 ## Flowchart
 
 ```markdown
@@ -231,6 +289,25 @@ graph TD;
     B-->D;
     C-->D;
 ```
+## Pie Charts
+
+```markdown
+pie
+    title Pie Chart
+    "Dogs" : 386
+    "Cats" : 85
+    "Rats" : 150 
+```
+
+
+```mermaid
+pie
+    title Pie Chart
+    "Dogs" : 386
+    "Cats" : 85
+    "Rats" : 150 
+```
+
 
 ## Sequence Diagram
 
@@ -271,58 +348,3 @@ gantt
     Future task               :         des3, after des2, 5d
     Future task2               :         des4, after des3, 5d
 ```
-
-
-## Math
-
-```markdown
-$$
-\frac{n!}{k!(n-k)!} = \binom{n}{k}
-$$
-```
-
-$$
-\frac{n!}{k!(n-k)!} = \binom{n}{k}
-$$
-
-## Table of Contents
-
-
-```markdown
-- [What is Markdown?](#what-is-markdown)
-- [Which text editor to use?](#which-text-editor-to-use)
-    - [What to prepare if you want to use Visual Studio Code?](#what-to-prepare-if-you-want-to-use-visual-studio-code)
-```
-
-- [What is Markdown?](#what-is-markdown)
-- [Which text editor to use?](#which-text-editor-to-use)
-- [What to prepare if you want to use Visual Studio Code?](#what-to-prepare-if-you-want-to-use-visual-studio-code)
-- [Notations of Markdown](#notations-of-markdown)
-  - [Headers](#headers)
-- [This is an h1 tag](#this-is-an-h1-tag)
-  - [This is an h2 tag](#this-is-an-h2-tag)
-          - [This is an h6 tag](#this-is-an-h6-tag)
-  - [Emphasis](#emphasis)
-  - [Lists](#lists)
-    - [Unordered](#unordered)
-    - [Ordered](#ordered)
-  - [Images](#images)
-  - [Links](#links)
-  - [Blockquotes](#blockquotes)
-  - [Inline code](#inline-code)
-  - [Tables](#tables)
-  - [Task Lists](#task-lists)
-  - [Strikethrough](#strikethrough)
-  - [Emoji](#emoji)
-  - [Footnotes](#footnotes)
-  - [Horizontal Rule](#horizontal-rule)
-  - [Flowchart](#flowchart)
-  - [Sequence Diagram](#sequence-diagram)
-  - [Gantt Diagram](#gantt-diagram)
-  - [Math](#math)
-  - [Table of Contents](#table-of-contents)
-  - [Documentations](#documentations)
-
-
-## Documentations
-
